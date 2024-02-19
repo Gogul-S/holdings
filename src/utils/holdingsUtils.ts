@@ -17,7 +17,7 @@ const transformHoldings = (rawResponse: any): HoldingsData | undefined => {
     todayPandL: 0,
   };
 
-  rawResponse.userHoslding.forEach((holding: any) => {
+  rawResponse.userHolding.forEach((holding: any) => {
     const ltp = holding.ltp || 0;
     const quantity = holding.quantity || 0;
     const averagePrice = holding.avgPrice || 0;

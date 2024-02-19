@@ -1,22 +1,23 @@
 import React from 'react';
-import {SafeAreaView, ScrollView, Text, View} from 'react-native';
+import {ActivityIndicator, SafeAreaView} from 'react-native';
+import AppBar from '../../components/AppBar';
+import ErrorBanner from '../../components/ErrorBanner/errorBanner';
+import HoldingList from '../../components/HoldingList';
 import useFetchHoldings from '../../query/holdings/useFetchHoldings';
+import {COLOR_PALLETE} from '../../theme/colorPallete';
+import {holdingListScreenStyles} from './styles';
 
 const HoldingsScreen = () => {
   const {data, isLoading, error, isError} = useFetchHoldings();
 
   return (
-    <SafeAreaView style={{flex: 1}}>
-      <ScrollView>
-        <View
-          style={{
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
-          {!isLoading && <Text>{JSON.stringify(data, null, 2)}</Text>}
-        </View>
-      </ScrollView>
+    <SafeAreaView style={holdingListScreenStyles.safeArea}>
+      <AppBar />
+      {isLoading && <ActivityIndicator color={COLOR_PALLETE.PRIMARY} />}
+      {!isLoading && isError && (
+        <ErrorBanner description={error?.toString() as string} />
+      )}
+      {!isLoading && !isError && <HoldingList holdings={data?.holdings!} />}
     </SafeAreaView>
   );
 };
