@@ -2,12 +2,7 @@ export enum TextType {
   Title = 'TITLE',
   Subtitle = 'SUBTITLE',
   Body = 'BODY',
-  Cta = 'CTA',
-  InputError = 'INPUT_ERROR',
   Caption = 'CAPTION',
-  Caption2 = 'CAPTION_2',
-  BodySmall = 'BODY_SMALL',
-  Caption3 = 'CAPTION_3',
   Body1 = 'BODY_1',
 }
 
@@ -41,10 +36,6 @@ export const TYPOGRAPHY: Readonly<Typography> = {
     fontSize: 18,
     fontWeight: '400',
   },
-  CAPTION: {
-    fontSize: 20,
-    fontWeight: '700',
-  },
   BODY: {
     fontSize: 14,
     fontWeight: 'normal',
@@ -53,24 +44,8 @@ export const TYPOGRAPHY: Readonly<Typography> = {
     fontSize: 14,
     fontWeight: '700',
   },
-  BODY_SMALL: {
-    fontSize: 12,
-    fontWeight: 'normal',
-  },
-  CTA: {
+  CAPTION: {
     fontSize: 16,
-    fontWeight: '600',
-  },
-  INPUT_ERROR: {
-    fontSize: 12,
-    fontWeight: 'normal',
-  },
-  CAPTION_2: {
-    fontSize: 16,
-    fontWeight: '700',
-  },
-  CAPTION_3: {
-    fontSize: 14,
     fontWeight: '700',
   },
 };
